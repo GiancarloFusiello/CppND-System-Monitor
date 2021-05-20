@@ -3,21 +3,26 @@
 
 #include <string>
 /*
-Basic class for Process representation
+Basic class for static Process representation
 It contains relevant attributes as shown below
 */
 class Process {
  public:
-  int Pid();                               // TODO: See src/process.cpp
-  std::string User();                      // TODO: See src/process.cpp
-  std::string Command();                   // TODO: See src/process.cpp
-  float CpuUtilization();                  // TODO: See src/process.cpp
-  std::string Ram();                       // TODO: See src/process.cpp
-  long int UpTime();                       // TODO: See src/process.cpp
-  bool operator<(Process const& a) const;  // TODO: See src/process.cpp
+  Process(int p);
+  int Pid();
+  float CpuUtilization();
+  std::string Command();
+  std::string Ram();
+  std::string User();
+  long int UpTime();
 
-  // TODO: Declare any necessary private members
  private:
+  int pid_;
+  float cpu_utilization_{0};
+  std::string command_;
+  std::string ram_;
+  std::string user_;
+  long int uptime_{0};
 };
 
 #endif

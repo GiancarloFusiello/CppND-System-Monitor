@@ -1,0 +1,19 @@
+version: "3"
+
+services:
+  system-monitor-dev:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: dev
+    container_name: system-monitor-dev
+    image: system-monitor-dev
+    command: bash
+
+  system-monitor:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: launch
+    container_name: system-monitor
+    image: system-monitor

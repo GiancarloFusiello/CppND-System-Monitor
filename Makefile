@@ -1,5 +1,5 @@
 .PHONY: all
-all: format test build
+all: format build
 
 .PHONY: format
 format:
@@ -10,15 +10,20 @@ build:
 	mkdir -p build
 	cd build && \
 	cmake .. && \
-	make
+	$(MAKE)
 
 .PHONY: debug
 debug:
 	mkdir -p build
 	cd build && \
 	cmake -DCMAKE_BUILD_TYPE=debug .. && \
-	make
+	$(MAKE)
 
 .PHONY: clean
 clean:
 	rm -rf build
+
+.PHONY: launch
+launch:
+	docker-compose run --rm --service-ports system-monitor
+	docker-compose down --volumes --remove-orphans
