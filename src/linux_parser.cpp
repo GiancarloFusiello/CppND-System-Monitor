@@ -231,7 +231,7 @@ string LinuxParser::Ram(int pid) {
     while (std::getline(filestream, line)){
       std::istringstream linestream(line);
       linestream >> key >> value;
-      if (key == "VmSize:") {
+      if (key == "VmData:") {
         // convert from kb to mb
         float ram = std::stof(value);
         ram *= 0.001;
